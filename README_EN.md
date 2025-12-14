@@ -406,13 +406,36 @@ app/src/main/assets/
 
 ## Roadmap
 
-### Completed
+### Completed (v1.x)
 
 - [x] **Native Android Implementation** - Kotlin rewrite of MobileAgent, no Python dependency
 - [x] **Tools Layer** - Atomic capability wrapper (search_apps, deep_link, clipboard, etc.)
 - [x] **Skills Layer** - User intent mapping with Delegation and GUI Automation modes
 - [x] **Smart App Search** - Multi-dimensional matching via pinyin, semantic, and category
 - [x] **Fast Path** - High-confidence Skills direct DeepLink jump
+
+### 🚀 v2.0 In Development
+
+> Major update in progress on `roubao2.0+AccessibilityService` branch
+
+- [ ] **Accessibility Service Hybrid Mode** - Integrate AccessibilityService for more precise UI control
+  - Prioritize element index-based clicking (unaffected by screen changes)
+  - Smart fallback: auto-switch to coordinate mode when index mode fails
+  - No Root required, further lowering the barrier to entry
+
+- [ ] **UI Tree Awareness** - Agent can access complete UI structure
+  - Identify clickable elements, input fields, scrollable areas
+  - Provide structured UI context to LLM
+  - Reduce pure-visual misjudgments
+
+- [ ] **Macro Script System** - Record, store, and replay action sequences
+  - Record execution as replayable scripts
+  - Support loop playback, delay control
+  - Script management UI (new "Scripts" navigation tab)
+
+- [ ] **Settings Enhancement**
+  - Accessibility service toggle with guidance
+  - Hybrid mode status display
 
 ### Near-term
 
@@ -422,7 +445,6 @@ app/src/main/assets/
 
 ### Mid-term
 
-- [ ] **Accessibility Mode** - No Shizuku required, control via Android Accessibility Service, lowering the barrier to entry
 - [ ] **More Device Support** - Support more Android devices and custom systems (MIUI, ColorOS, HarmonyOS, etc.)
 - [ ] **Local Models** - Support running small VLMs on-device for offline use
 - [ ] **Task Templates** - Save and share common tasks
