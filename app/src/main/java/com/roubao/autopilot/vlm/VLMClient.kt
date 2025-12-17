@@ -56,6 +56,11 @@ class VLMClient(
          * @return 模型 ID 列表
          */
         suspend fun fetchModels(baseUrl: String, apiKey: String): Result<List<String>> = withContext(Dispatchers.IO) {
+            // 验证 baseUrl 是否为空
+            if (baseUrl.isBlank()) {
+                return@withContext Result.failure(Exception("Base URL 不能为空"))
+            }
+
             val client = OkHttpClient.Builder()
                 .connectTimeout(10, TimeUnit.SECONDS)
                 .readTimeout(10, TimeUnit.SECONDS)
@@ -64,11 +69,15 @@ class VLMClient(
             // 清理 URL，确保正确拼接
             val cleanBaseUrl = normalizeUrl(baseUrl.removeSuffix("/chat/completions"))
 
-            val request = Request.Builder()
-                .url("$cleanBaseUrl/models")
-                .addHeader("Authorization", "Bearer $apiKey")
-                .get()
-                .build()
+            val request = try {
+                Request.Builder()
+                    .url("$cleanBaseUrl/models")
+                    .addHeader("Authorization", "Bearer $apiKey")
+                    .get()
+                    .build()
+            } catch (e: IllegalArgumentException) {
+                return@withContext Result.failure(Exception("Base URL 格式无效: ${e.message}"))
+            }
 
             try {
                 client.newCall(request).execute().use { response ->
