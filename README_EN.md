@@ -24,6 +24,22 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/aypex/roubao/releases/latest">
+    <img src="https://img.shields.io/github/v/release/aypex/roubao?label=Download%20APK&color=success" alt="Download Latest Release">
+  </a>
+  <a href="https://github.com/aypex/roubao/releases">
+    <img src="https://img.shields.io/github/downloads/aypex/roubao/total?label=Downloads" alt="Total Downloads">
+  </a>
+  <img src="https://github.com/aypex/roubao/workflows/Build%20Android%20APK/badge.svg" alt="Build Status">
+</p>
+
+<p align="center">
+  <a href="https://github.com/aypex/roubao/releases/latest">
+    <strong>📥 Download Latest Release</strong>
+  </a>
+</p>
+
+<p align="center">
   <img src="docs/demo/demo.gif" width="280" alt="Demo">
 </p>
 

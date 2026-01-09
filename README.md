@@ -24,6 +24,22 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/aypex/roubao/releases/latest">
+    <img src="https://img.shields.io/github/v/release/aypex/roubao?label=下载%20APK&color=success" alt="下载最新版本">
+  </a>
+  <a href="https://github.com/aypex/roubao/releases">
+    <img src="https://img.shields.io/github/downloads/aypex/roubao/total?label=下载量" alt="总下载量">
+  </a>
+  <img src="https://github.com/aypex/roubao/workflows/Build%20Android%20APK/badge.svg" alt="构建状态">
+</p>
+
+<p align="center">
+  <a href="https://github.com/aypex/roubao/releases/latest">
+    <strong>📥 下载最新版本</strong>
+  </a>
+</p>
+
+<p align="center">
   <img src="docs/demo/demo.gif" width="280" alt="演示">
 </p>
 
