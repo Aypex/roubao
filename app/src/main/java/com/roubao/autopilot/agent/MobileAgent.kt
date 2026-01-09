@@ -220,14 +220,13 @@ class MobileAgent(
                         return AgentResult(success = false, message = "Detected sensitive page (payment/password), safely stopped")
                     }
 
-                    // Check if completed - more robust detection
-                    val planLower = planResult.plan.lowercase().trim()
+                    // Check if completed - comprehensive detection
+                    // Matches: "Finished", "finished", "Finished!", "Finished: app is open", etc.
+                    val planTrimmed = planResult.plan.trim()
+                    val planLower = planTrimmed.lowercase()
                     val isFinished = planLower == "finished" ||
-                            planLower == "finished." ||
-                            planLower.startsWith("finished.") ||
-                            planLower.startsWith("finished!") ||
-                            planLower.startsWith("finished -") ||
-                            (planResult.plan.contains("Finished") && planResult.plan.length < 50)
+                            planTrimmed == "Finished" ||
+                            planLower.matches(Regex("^finished[.!:,\\s-].*$"))
 
                     if (isFinished) {
                         log("Task completed!")
